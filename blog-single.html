@@ -72,19 +72,19 @@
                 <article class="col-full">
                     <div class="page-header__info">
                         <div class="page-header__cat">
-                            <a href="#0">Branding</a><a href="#0">Design</a>
+                            <a href="#0">Dimensionality Reduction</a><a href="#0">Machine Learning</a>
                         </div>
                     </div>
                     <h1 class="page-header__title">
                         <a href="#0" title="">
-                            Using Patterns in your Branding.
+                            Dimensionality Reduction using PCA & SVD.
                         </a>
                     </h1>
                     <ul class="page-header__meta">
-                        <li class="date">September 16, 2017</li>
+                        <li class="date">October 21, 2019</li>
                         <li class="author">
                             By
-                            <span>Jonathan Doe</span>
+                            <span>Laxman Singh Tomar</span>
                         </li>
                     </ul>
                     
@@ -96,26 +96,39 @@
         <div class="row blog-content">
             <div class="col-full blog-content__main">
 
-                <p class="lead">Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint.</p>
+                <p class="lead">Whenever we start a data analysis problem, one of the most initial steps that we undergo is some sort of exploratory data analysis of raw data at hand. Exploring your data is a crucial step as until you have basic understanding of your data viz structure of it, it's somewhat difficult to know whether the data you've is suitable for the task we gotta perform or is something from which we can draw any insights. In real world problems, raw data consists of many features. On one hand it's good to have multiple features as it allows our models to generalize well, but on the other it's bad as we can only work things out for visualizations upto 3 dimensions. So how can we go on exploring our data? The answer to this problem is Dimensionality Reduction. Dimensionality Reduction helps us out by providing a simpler and more compact representations of our original raw data to either aid our understanding or to provide useful input for the incoming stages of analysis. Here we'll focus on two such techniques one by one.</p>
                 
-                <p>Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
+                <p>What happens is, whenever we have a problem at hand or we're trying to understand some underlying phenomenon, in order to do so we measure various quantities potentially related to it. In most cases, if we knew exactly what to measure in advance, we might be able to find some simple relationships in our data. Say, when we have a mensuration problem, most of the time we know which formula will work things out for us. So we just try to find values which can be plugged into formula equation. But sadly, generally we aren't that fortunate and don't know what we got to measure, so we often end up measure anything that might be relevant and end up having irrelevant or redundant signals in our measurements. To make this a bit more concrete, let's try to generate a 2-dimensional dataset which can explain what we just proposed:
+
                 </p>
 
                 <p>
-                <img src="images/wheel-1000.jpg" 
-                     srcset="images/wheel-2000.jpg 2000w, 
-                        images/wheel-1000.jpg 1000w, 
-                        images/wheel-500.jpg 500w" 
+                <img src="images/dimensionality%20reduction-2000.png" 
+                     srcset="images/dimensionality reduction-2000.jpg 2000w, 
+                        images/dimensionality reduction-1000.jpg 1000w, 
+                        images/dimensionality reduction-500.jpg 500w" 
+                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </p>
+                
+                <p>Now it's pretty evident from the plot that there's a linear relationship between the 2 variables, thus we probably don't need to include both of them as 𝑥1 can be easily explained by 𝑥2 and vice versa.</p>
+
+                <h2>Principal Component Analysis (PCA)</h2>
+
+                <p>Now you know that there might exist some features which may be redundant as their behavior can be explained by other features, we should be able to summarize the data with less features. So, what PCA does to solve this issue is: Instead of simply picking out the useful features and discarding the others it uses a linear combination of the existing features and constructs some new features that are better alternative representation of original data. In our 2-dimensional dataset above, PCA will try to pick the best single direction, or often referred as first principal component in 2D, and project our points onto that single direction. Immediately the next question arises, out of the many possible lines in 2-dimension, which line should we pick?</p>
+
+                <blockquote><p>This is a simple example of a styled blockquote. A blockquote tag typically specifies a section that is quoted from another source of some sort, or highlighting text in your post.</p></blockquote>
+                
+                <p>
+                <img 
+                     src="images/pca_two_views-2000.png" 
+                     srcset="images/pca_two_views-2000.jpg 2000w, 
+                        images/pca_two_views-1000.jpg 1000w, 
+                        images/pca_two_views-500.jpg 500w" 
                      sizes="(max-width: 2000px) 100vw, 2000px" alt="">
                 </p>
 
-                <h2>Large Heading</h2>
-
-                <p>Harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus <a href="http://#">omnis voluptas assumenda est</a> id quod maxime placeat facere possimus, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et.</p>
-
-                <blockquote><p>This is a simple example of a styled blockquote. A blockquote tag typically specifies a section that is quoted from another source of some sort, or highlighting text in your post.</p></blockquote>
-
-                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
+                <p>It turns out that, there are couple of different answers to this question. First of them would be that we're looking for some features that strongly differ across data points, thus PCA looks for features that captures as much as variation across data points as possible. Second answer would be that we're looking for the features that would allow us to reconstruct the original features. Imagine that we come up with a feature that has little do with the original features we had, if we were to use this new feature, there's no way we can relate this to the original features. So no point in taking this up! Hence, PCA looks for features that minimizes the reconstruction error.
+</p>
 
                 <h3>Smaller Heading</h3>
 
