@@ -115,52 +115,49 @@
                 <h2>Principal Component Analysis (PCA)</h2>
 
                 <p>Now you know that there might exist some features which may be redundant as their behavior can be explained by other features, we should be able to summarize the data with less features. So, what PCA does to solve this issue is: Instead of simply picking out the useful features and discarding the others it uses a linear combination of the existing features and constructs some new features that are better alternative representation of original data. In our 2-dimensional dataset above, PCA will try to pick the best single direction, or often referred as first principal component in 2D, and project our points onto that single direction. Immediately the next question arises, out of the many possible lines in 2-dimension, which line should we pick?</p>
-
-                <blockquote><p>This is a simple example of a styled blockquote. A blockquote tag typically specifies a section that is quoted from another source of some sort, or highlighting text in your post.</p></blockquote>
                 
                 <p>
                 <img 
-                     src="images/pca_two_views-2000.png" 
-                     srcset="images/pca_two_views-2000.jpg 2000w, 
-                        images/pca_two_views-1000.jpg 1000w, 
-                        images/pca_two_views-500.jpg 500w" 
+                     src="images/pca two views-2000.png" 
+                     srcset="images/pca two views-2000.jpg 2000w, 
+                        images/pca two views-1000.jpg 1000w, 
+                        images/pca two views-500.jpg 500w" 
                      sizes="(max-width: 2000px) 100vw, 2000px" alt="">
                 </p>
 
-                <p>It turns out that, there are couple of different answers to this question. First of them would be that we're looking for some features that strongly differ across data points, thus PCA looks for features that captures as much as variation across data points as possible. Second answer would be that we're looking for the features that would allow us to reconstruct the original features. Imagine that we come up with a feature that has little do with the original features we had, if we were to use this new feature, there's no way we can relate this to the original features. So no point in taking this up! Hence, PCA looks for features that minimizes the reconstruction error.
-</p>
+                <p>It turns out that, there are couple of different answers to this question. First of them would be that we're looking for some features that strongly differ across data points, thus PCA looks for features that captures as much as variation across data points as possible. Second answer would be that we're looking for the features that would allow us to reconstruct the original features. Imagine that we come up with a feature that has little do with the original features we had, if we were to use this new feature, there's no way we can relate this to the original features. So no point in taking this up! Hence, PCA looks for features that minimizes the reconstruction error.</p>
+                
+                <p>So, behavior of PCA can be explained by both these outlooks; shown in figure above. Here black dot represent original data points, black line represents the projected line, red dot on the left represents the points on the projected line and the red line represents the reconstruction error.</p>
+                
+                <p>Suprisingly, it turns out that these 2 objectives are equivalent and PCA can do both of them simulatenously. To see, why minimizing the sum of the squared residuals is equivalent to maximizing variance consider the 2 dimension visualization below:</p>
+                
+                <p>
+                <img 
+                     src="images/objective-2000.png" 
+                     srcset="images/objective-2000.png 2000w, 
+                        images/objective-1000.png 1000w, 
+                        images/objective-500.png 500w" 
+                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </p>
 
-                <h3>Smaller Heading</h3>
+                
+                
+                <p>Consider a datapoint. The contribution of this specific data point to the total variance is the squared Euclidean length. Applying the Pythagorean theorem shows that this total variance equals the sum of variance lost(thr squared residual) and variance remaining. Thus, it's equivalent to either maximizing remaining variance or minimizing lost variance to find the principal components.</p>
 
-                <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
 
-<pre><code>
-code {
-    font-size: 1.4rem;
-    margin: 0 .2rem;
-    padding: .2rem .6rem;
-    white-space: nowrap;
-    background: #F1F1F1;
-    border: 1px solid #E1E1E1;	
-    border-radius: 3px;
-}
-</code></pre>
-
-                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
-
-                <ul>
-                    <li>Donec nulla non metus auctor fringilla.
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                        </ul>
-                    </li>
-                    <li>Donec nulla non metus auctor fringilla.</li>
-                    <li>Donec nulla non metus auctor fringilla.</li>
-                </ul>
-
-                <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
+                <a href="https://github.com/LaxmanSinghTomar/Machine-Learning/blob/master/Tutorials/Dimensionality%20Reduction.ipynb">For full implementation of PCA from scratch!</a>
+                
+                <h4>Important Takeaways</h4>
+                <p>For the identification of underlying patterns existing in our data, we often look for variation across observations to distinguish them from one another. Hence it seems reasonable to be able to find a succinct representation that best captures the variation in our initial raw data. PCA, in particular looks to explain our data via it's maximum directions of variance. By compressing a higher dimensional dataset into a lower one, while still retaining most of the variance(information) allows us to:</p>
+                
+                
+                <ol>
+                    <li>Perform Visualizations by reducing the number of dimensions for a high-dimensional dataset.</li>
+                    
+                    
+                    <li>Speeds up Machine Learning Algorithms by reducing the amount of memory required to train the algorithms with less number of features.</li>
+                </ol>
+                
 
                 <p class="blog-content__tags">
                     <span>Post Tags</span>
